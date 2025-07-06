@@ -1,4 +1,6 @@
 ## 🚀 Deploy Super Mario Game on AWS EKS using Terraform
+![image](https://github.com/user-attachments/assets/149b3bea-bc05-4c4c-8b5e-f4573212f3ba)
+
 
 ### 👋 Introduction
 
@@ -30,6 +32,8 @@ Ensure your system is ready to roll:
 ### 🧪 Testing the Game Locally with Docker
 
 **Step 1:** Start the Docker container
+![image](https://github.com/user-attachments/assets/fa7b072a-964c-42f3-abf9-5d4207953793)
+
 
 ```bash
 docker run -d -p 8080:80 deveshkhatik007/mario:latest
@@ -37,6 +41,8 @@ docker run -d -p 8080:80 deveshkhatik007/mario:latest
 
 **Step 2:** Access the Game
 Go to: [http://localhost:8080](http://localhost:8080)
+![image](https://github.com/user-attachments/assets/18c73235-2498-422c-bca6-45c4b25b0509)
+
 
 ---
 
@@ -48,6 +54,8 @@ Go to: [http://localhost:8080](http://localhost:8080)
 curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
 sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
 kubectl version --client --output=yaml
+![image](https://github.com/user-attachments/assets/8e1ea120-6334-4862-a5df-5a94bf6d3899)
+
 ```
 
 #### ☁️ Install AWS CLI
@@ -62,8 +70,16 @@ aws --version
 **Configure Credentials:**
 
 1. Go to IAM → Create User → Name: `mario`
-2. Attach `AdministratorAccess` policy
-3. Create access key
+2. ![image](https://github.com/user-attachments/assets/521c2d5d-9690-48dd-a86a-59b9db2e35b0)
+
+3. Attach `AdministratorAccess` policy
+4. ![image](https://github.com/user-attachments/assets/81441d61-08b8-478a-92d0-f3c762fb4034)
+
+5. Create access key
+6. ![image](https://github.com/user-attachments/assets/49886207-d252-4adc-85d5-7e36d98199f4)
+
+
+
 
 ```bash
 aws configure
@@ -187,7 +203,13 @@ aws s3 mb s3://devesh-mario-bucket
 ```bash
 cd terr-config
 terraform init
+![image](https://github.com/user-attachments/assets/8f6a9d14-5e2d-43ee-9b3c-cfa81522d66e)
+![image](https://github.com/user-attachments/assets/f694b997-3c44-45b1-a147-fef88ceefd52)
+
+
 terraform plan
+![Uploading image.png…]()
+
 terraform apply --auto-approve
 ```
 
