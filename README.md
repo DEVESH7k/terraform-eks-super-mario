@@ -1,6 +1,4 @@
 ## 🚀 Deploy Super Mario Game on AWS EKS using Terraform
-![image](https://github.com/user-attachments/assets/da194a7e-26b7-4dea-a9aa-69f1e1ce325a)
-
 
 👋 Introduction
 
@@ -34,15 +32,11 @@ Ensure your system is ready to roll:
 **Step 1:** Start the Docker container
 
 ```bash
-
 docker run -d -p 8080:80 deveshkhatik007/mario:latest
 ```
-![image](https://github.com/user-attachments/assets/935949c1-7146-4e42-ad1f-5fa77e5b60b0)
-
 
 **Step 2:** Access the Game
 Go to: [http://localhost:8080](http://localhost:8080)
-![image](https://github.com/user-attachments/assets/28c0c776-082b-4469-96fc-554daa54ab43)
 
 ---
 
@@ -55,7 +49,6 @@ curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stabl
 sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
 kubectl version --client --output=yaml
 ```
-![image](https://github.com/user-attachments/assets/036df8d4-4229-4d31-a70c-43cd8a2e8b05)
 
 ☁️ Install AWS CLI
 
@@ -69,14 +62,8 @@ aws --version
 **Configure Credentials:**
 
 1. Go to IAM → Create User → Name: `mario`
-2. ![image](https://github.com/user-attachments/assets/9938f5e8-b363-46a4-aeb9-101df37de32c)
-
-3. Attach `AdministratorAccess` policy
-4. ![image](https://github.com/user-attachments/assets/0534ce41-9f19-4994-a0de-b0250d685b39)
-
-5. Create access key
-6. ![image](https://github.com/user-attachments/assets/8180572b-5d32-488f-a6b8-72dd33c14816)
-
+2. Attach `AdministratorAccess` policy
+3. Create access key
 
 ```bash
 aws configure
@@ -196,8 +183,6 @@ aws s3 mb s3://devesh-mario-bucket
 🚀 Deployment Steps
 
 1️⃣ Terraform Init, Plan, Apply
-![image](https://github.com/user-attachments/assets/e1c7078a-49e5-4856-a0c6-f07381248e40)
-
 
 ```bash
 cd terr-config
@@ -205,8 +190,6 @@ terraform init
 terraform plan
 terraform apply --auto-approve
 ```
-![image](https://github.com/user-attachments/assets/c13a3fbf-0de6-4ca7-99da-6c66fa580078)
-
 
 2️⃣ Update kubeconfig
 
@@ -221,18 +204,14 @@ cd ../
 kubectl apply -f deployment.yml
 kubectl apply -f service.yml
 ```
-![image](https://github.com/user-attachments/assets/a340bf8c-edcc-487f-9706-62d6a50da7d5)
-
 
 4️⃣ Get LoadBalancer URL
 
 ```bash
 kubectl describe service mario-service
 ```
-![image](https://github.com/user-attachments/assets/eb2e3c8c-a8ad-4f2e-91dc-ae585610d3af)
 
-🎉 **Congratulations!** Your Super Mario game is now live on your AWS EKS cluster
-
+🎉 **Congratulations!** Your Super Mario game is now live on your AWS EKS cluster!
 
 ---
 
@@ -244,8 +223,6 @@ Avoid extra AWS charges:
 cd terr-config
 terraform destroy --auto-approve
 ```
-![Uploading image.png…]()
-
 
 ---
 
