@@ -71,7 +71,11 @@ aws --version
 2. ![image](https://github.com/user-attachments/assets/b5f6a742-76f0-4ba4-961e-97eda768ae66)
 
 3. Attach `AdministratorAccess` policy
-4. Create access key
+4. ![image](https://github.com/user-attachments/assets/0c4aa37a-4b62-4c13-b666-3c6ea28f013c)
+
+5. Create access key
+6. ![image](https://github.com/user-attachments/assets/c282db93-b684-4dc6-ba14-21c136765507)
+
 
 ```bash
 aws configure
@@ -191,6 +195,8 @@ aws s3 mb s3://devesh-mario-bucket
 🚀 Deployment Steps
 
 1️⃣ Terraform Init, Plan, Apply
+![image](https://github.com/user-attachments/assets/55c21430-30e1-4e54-8f44-af62fd07e614)
+
 
 ```bash
 cd terr-config
@@ -198,6 +204,7 @@ terraform init
 terraform plan
 terraform apply --auto-approve
 ```
+![image](https://github.com/user-attachments/assets/672bba56-d6f2-4b5e-8378-83ba0b4075be)
 
 2️⃣ Update kubeconfig
 
@@ -212,14 +219,18 @@ cd ../
 kubectl apply -f deployment.yml
 kubectl apply -f service.yml
 ```
+![image](https://github.com/user-attachments/assets/c235b4f4-327e-4da9-8877-3f2fb75bc5e1)
+
 
 4️⃣ Get LoadBalancer URL
 
 ```bash
 kubectl describe service mario-service
 ```
+![image](https://github.com/user-attachments/assets/297f51ea-9548-47c4-b2c5-2b37a6582bcb)
 
 🎉 **Congratulations!** Your Super Mario game is now live on your AWS EKS cluster!
+![image](https://github.com/user-attachments/assets/9317e848-50b3-4827-8d70-ac5efbde9a1b)
 
 ---
 
@@ -231,6 +242,8 @@ Avoid extra AWS charges:
 cd terr-config
 terraform destroy --auto-approve
 ```
+![image](https://github.com/user-attachments/assets/87b8494b-665b-479b-9940-060bef788145)
+![image](https://github.com/user-attachments/assets/f935bc0c-2d50-4099-bdae-5f70ddeb12da)
 
 ---
 
