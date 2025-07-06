@@ -1,5 +1,4 @@
-🚀 Deploy Super Mario Game on AWS EKS using Terraform
-![image](https://github.com/user-attachments/assets/149b3bea-bc05-4c4c-8b5e-f4573212f3ba)
+## 🚀 Deploy Super Mario Game on AWS EKS using Terraform
 
 👋 Introduction
 
@@ -31,7 +30,6 @@ Ensure your system is ready to roll:
 🧪 Testing the Game Locally with Docker
 
 **Step 1:** Start the Docker container
-![image](https://github.com/user-attachments/assets/fa7b072a-964c-42f3-abf9-5d4207953793)
 
 ```bash
 docker run -d -p 8080:80 deveshkhatik007/mario:latest
@@ -39,7 +37,6 @@ docker run -d -p 8080:80 deveshkhatik007/mario:latest
 
 **Step 2:** Access the Game
 Go to: [http://localhost:8080](http://localhost:8080)
-![image](https://github.com/user-attachments/assets/18c73235-2498-422c-bca6-45c4b25b0509)
 
 ---
 
@@ -53,8 +50,6 @@ sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
 kubectl version --client --output=yaml
 ```
 
-![image](https://github.com/user-attachments/assets/8e1ea120-6334-4862-a5df-5a94bf6d3899)
-
 ☁️ Install AWS CLI
 
 ```bash
@@ -67,11 +62,8 @@ aws --version
 **Configure Credentials:**
 
 1. Go to IAM → Create User → Name: `mario`
-   ![image](https://github.com/user-attachments/assets/521c2d5d-9690-48dd-a86a-59b9db2e35b0)
 2. Attach `AdministratorAccess` policy
-   ![image](https://github.com/user-attachments/assets/81441d61-08b8-478a-92d0-f3c762fb4034)
 3. Create access key
-   ![image](https://github.com/user-attachments/assets/49886207-d252-4adc-85d5-7e36d98199f4)
 
 ```bash
 aws configure
@@ -192,17 +184,10 @@ aws s3 mb s3://devesh-mario-bucket
 
 1️⃣ Terraform Init, Plan, Apply
 
-![image](https://github.com/user-attachments/assets/c3ae751f-c4bd-4ab8-a2f0-8850d823c544)
-
 ```bash
 cd terr-config
 terraform init
 terraform plan
-```
-![image](https://github.com/user-attachments/assets/da6e1127-cd0c-44df-810c-20510f7ae02b)
-
-
-```bash
 terraform apply --auto-approve
 ```
 
@@ -213,10 +198,6 @@ aws eks update-kubeconfig --name EKS_CLOUD --region ap-south-1
 ```
 
 3️⃣ Deploy App to EKS
-![image](https://github.com/user-attachments/assets/5d50ac41-25bc-4b57-a743-3c1fa5c8f4f2)
-![image](https://github.com/user-attachments/assets/110faa30-90d1-4c16-aa33-2e6c7b42e790)
-
-
 
 ```bash
 cd ../
@@ -226,22 +207,15 @@ kubectl apply -f service.yml
 
 4️⃣ Get LoadBalancer URL
 
-![image](https://github.com/user-attachments/assets/f1a3123e-bac3-407a-81ea-77bb1f7fcd17)
-
 ```bash
 kubectl describe service mario-service
 ```
-
-![image](https://github.com/user-attachments/assets/eec55126-b5ef-44c1-bbb4-61576ad316ef)
 
 🎉 **Congratulations!** Your Super Mario game is now live on your AWS EKS cluster!
 
 ---
 
 🧹 Clean-Up Resources
-
-![image](https://github.com/user-attachments/assets/ea2c134b-9929-48b5-9a5a-b117f0acb7d7)
-![image](https://github.com/user-attachments/assets/8fe21fe5-3aed-48ab-aa43-9b0d9fc981c8)
 
 Avoid extra AWS charges:
 
