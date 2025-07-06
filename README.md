@@ -1,8 +1,7 @@
-## 🚀 Deploy Super Mario Game on AWS EKS using Terraform
+🚀 Deploy Super Mario Game on AWS EKS using Terraform
 ![image](https://github.com/user-attachments/assets/149b3bea-bc05-4c4c-8b5e-f4573212f3ba)
 
-
-### 👋 Introduction
+👋 Introduction
 
 Welcome to the world of clusters, containers, and cloud automation! In this guide, we’ll take a nostalgic detour into childhood by deploying the legendary **Super Mario game** on an **Amazon EKS (Elastic Kubernetes Service)** cluster.
 
@@ -18,7 +17,7 @@ Whether you're a DevOps enthusiast or a beginner, you’ll gain hands-on exposur
 
 ---
 
-### 🔧 Pre-Requisites
+🔧 Pre-Requisites
 
 Ensure your system is ready to roll:
 
@@ -29,11 +28,10 @@ Ensure your system is ready to roll:
 
 ---
 
-### 🧪 Testing the Game Locally with Docker
+🧪 Testing the Game Locally with Docker
 
 **Step 1:** Start the Docker container
 ![image](https://github.com/user-attachments/assets/fa7b072a-964c-42f3-abf9-5d4207953793)
-
 
 ```bash
 docker run -d -p 8080:80 deveshkhatik007/mario:latest
@@ -43,22 +41,21 @@ docker run -d -p 8080:80 deveshkhatik007/mario:latest
 Go to: [http://localhost:8080](http://localhost:8080)
 ![image](https://github.com/user-attachments/assets/18c73235-2498-422c-bca6-45c4b25b0509)
 
-
 ---
 
-### 🛠️ Installing Required Tools
+🛠️ Installing Required Tools
 
-#### 📦 Install kubectl
+📦 Install kubectl
 
 ```bash
 curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
 sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
 kubectl version --client --output=yaml
-![image](https://github.com/user-attachments/assets/8e1ea120-6334-4862-a5df-5a94bf6d3899)
-
 ```
 
-#### ☁️ Install AWS CLI
+![image](https://github.com/user-attachments/assets/8e1ea120-6334-4862-a5df-5a94bf6d3899)
+
+☁️ Install AWS CLI
 
 ```bash
 curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
@@ -70,22 +67,17 @@ aws --version
 **Configure Credentials:**
 
 1. Go to IAM → Create User → Name: `mario`
-2. ![image](https://github.com/user-attachments/assets/521c2d5d-9690-48dd-a86a-59b9db2e35b0)
-
-3. Attach `AdministratorAccess` policy
-4. ![image](https://github.com/user-attachments/assets/81441d61-08b8-478a-92d0-f3c762fb4034)
-
-5. Create access key
-6. ![image](https://github.com/user-attachments/assets/49886207-d252-4adc-85d5-7e36d98199f4)
-
-
-
+   ![image](https://github.com/user-attachments/assets/521c2d5d-9690-48dd-a86a-59b9db2e35b0)
+2. Attach `AdministratorAccess` policy
+   ![image](https://github.com/user-attachments/assets/81441d61-08b8-478a-92d0-f3c762fb4034)
+3. Create access key
+   ![image](https://github.com/user-attachments/assets/49886207-d252-4adc-85d5-7e36d98199f4)
 
 ```bash
 aws configure
 ```
 
-#### 🧰 Install Terraform
+🧰 Install Terraform
 
 ```bash
 sudo apt-get update && sudo apt-get install -y wget gnupg software-properties-common
@@ -100,13 +92,13 @@ which terraform
 
 ---
 
-### 📁 Setup Project Structure
+📁 Setup Project Structure
 
 ```bash
 mkdir mario-game && cd mario-game
 ```
 
-#### ✍️ deployment.yml
+✍️ deployment.yml
 
 ```yaml
 apiVersion: apps/v1
@@ -130,7 +122,7 @@ spec:
         - containerPort: 80
 ```
 
-#### ✍️ service.yml
+✍️ service.yml
 
 ```yaml
 apiVersion: v1
@@ -149,13 +141,13 @@ spec:
 
 ---
 
-### 📂 Terraform Configuration
+📂 Terraform Configuration
 
 ```bash
 mkdir terr-config && cd terr-config
 ```
 
-#### 🧾 provider.tf
+🧾 provider.tf
 
 ```hcl
 terraform {
@@ -172,7 +164,7 @@ provider "aws" {
 }
 ```
 
-#### 🪣 backend.tf
+🪣 backend.tf
 
 ```hcl
 terraform {
@@ -189,35 +181,38 @@ Create the bucket:
 ```bash
 aws s3 mb s3://devesh-mario-bucket
 ```
+
 🧩 main.tf
 
 *Full EKS, IAM roles, VPC, subnets, and node group code provided in your input. (Omitted here for brevity)*
 
 ---
+
 🚀 Deployment Steps
 
 1️⃣ Terraform Init, Plan, Apply
 
-```bash
 ![image](https://github.com/user-attachments/assets/c3ae751f-c4bd-4ab8-a2f0-8850d823c544)
 
+```bash
 cd terr-config
 terraform init
-
-
 terraform plan
+```
+
 ![image](https://github.com/user-attachments/assets/9a717ef1-d10f-4178-b18f-8c1adec028aa)
 
+```bash
 terraform apply --auto-approve
 ```
 
-#### 2️⃣ Update kubeconfig
+2️⃣ Update kubeconfig
 
 ```bash
 aws eks update-kubeconfig --name EKS_CLOUD --region ap-south-1
 ```
 
-#### 3️⃣ Deploy App to EKS
+3️⃣ Deploy App to EKS
 
 ```bash
 cd ../
@@ -225,26 +220,24 @@ kubectl apply -f deployment.yml
 kubectl apply -f service.yml
 ```
 
-#### 4️⃣ Get LoadBalancer URL
+4️⃣ Get LoadBalancer URL
 
 ![image](https://github.com/user-attachments/assets/f1a3123e-bac3-407a-81ea-77bb1f7fcd17)
-`
-``bash
 
+```bash
 kubectl describe service mario-service
-![image](https://github.com/user-attachments/assets/eec55126-b5ef-44c1-bbb4-61576ad316ef)
-
 ```
+
+![image](https://github.com/user-attachments/assets/eec55126-b5ef-44c1-bbb4-61576ad316ef)
 
 🎉 **Congratulations!** Your Super Mario game is now live on your AWS EKS cluster!
 
 ---
 
-### 🧹 Clean-Up Resources
+🧹 Clean-Up Resources
+
 ![image](https://github.com/user-attachments/assets/ea2c134b-9929-48b5-9a5a-b117f0acb7d7)
 ![image](https://github.com/user-attachments/assets/8fe21fe5-3aed-48ab-aa43-9b0d9fc981c8)
-
-
 
 Avoid extra AWS charges:
 
@@ -255,7 +248,7 @@ terraform destroy --auto-approve
 
 ---
 
-### 🎯 Conclusion
+🎯 Conclusion
 
 You've successfully:
 
@@ -272,5 +265,3 @@ Whether you're starting in DevOps or enhancing your cloud-native skills, this pr
 [Devesh Khatik | LinkedIn](https://www.linkedin.com/in/deveshkhatik)
 
 **#docker #kubernetes #terraform #aws #eks #devops**
-
-ok
