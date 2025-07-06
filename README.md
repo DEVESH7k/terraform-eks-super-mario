@@ -1,4 +1,6 @@
 ## 🚀 Deploy Super Mario Game on AWS EKS using Terraform
+![image](https://github.com/user-attachments/assets/b00ea063-7afc-402a-97df-81a6584ef1a9)
+
 
 👋 Introduction
 
@@ -34,9 +36,12 @@ Ensure your system is ready to roll:
 ```bash
 docker run -d -p 8080:80 deveshkhatik007/mario:latest
 ```
+![image](https://github.com/user-attachments/assets/f7b80e09-ef14-40db-a3bc-d20a3206f1d2)
+
 
 **Step 2:** Access the Game
 Go to: [http://localhost:8080](http://localhost:8080)
+![image](https://github.com/user-attachments/assets/ad36ed9f-8ad5-4b8c-b686-fb50f151752c)
 
 ---
 
@@ -49,6 +54,7 @@ curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stabl
 sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
 kubectl version --client --output=yaml
 ```
+![image](https://github.com/user-attachments/assets/5673c2de-342e-458b-afa2-186caf6ee777)
 
 ☁️ Install AWS CLI
 
@@ -62,8 +68,10 @@ aws --version
 **Configure Credentials:**
 
 1. Go to IAM → Create User → Name: `mario`
-2. Attach `AdministratorAccess` policy
-3. Create access key
+2. ![image](https://github.com/user-attachments/assets/b5f6a742-76f0-4ba4-961e-97eda768ae66)
+
+3. Attach `AdministratorAccess` policy
+4. Create access key
 
 ```bash
 aws configure
