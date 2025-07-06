@@ -213,6 +213,10 @@ aws eks update-kubeconfig --name EKS_CLOUD --region ap-south-1
 ```
 
 3️⃣ Deploy App to EKS
+![image](https://github.com/user-attachments/assets/5d50ac41-25bc-4b57-a743-3c1fa5c8f4f2)
+![image](https://github.com/user-attachments/assets/110faa30-90d1-4c16-aa33-2e6c7b42e790)
+
+
 
 ```bash
 cd ../
