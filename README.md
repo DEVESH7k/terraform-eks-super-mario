@@ -199,8 +199,8 @@ cd terr-config
 terraform init
 terraform plan
 ```
+![image](https://github.com/user-attachments/assets/da6e1127-cd0c-44df-810c-20510f7ae02b)
 
-![image](https://github.com/user-attachments/assets/9a717ef1-d10f-4178-b18f-8c1adec028aa)
 
 ```bash
 terraform apply --auto-approve
