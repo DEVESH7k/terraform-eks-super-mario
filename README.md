@@ -80,6 +80,13 @@ aws --version
 ```bash
 aws configure
 ```
+You’ll be prompted to enter:
+
+AWS Access Key ID
+AWS Secret Access Key
+Default Region (e.g., ap-south-1)
+Output Format (you can leave it as json)
+✅ You’re now authenticated and ready to interact with AWS from your
 
 🧰 Install Terraform
 
