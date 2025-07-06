@@ -189,26 +189,24 @@ Create the bucket:
 ```bash
 aws s3 mb s3://devesh-mario-bucket
 ```
-
-#### 🧩 main.tf
+🧩 main.tf
 
 *Full EKS, IAM roles, VPC, subnets, and node group code provided in your input. (Omitted here for brevity)*
 
 ---
+🚀 Deployment Steps
 
-### 🚀 Deployment Steps
-
-#### 1️⃣ Terraform Init, Plan, Apply
+1️⃣ Terraform Init, Plan, Apply
 
 ```bash
+![image](https://github.com/user-attachments/assets/c3ae751f-c4bd-4ab8-a2f0-8850d823c544)
+
 cd terr-config
 terraform init
-![image](https://github.com/user-attachments/assets/8f6a9d14-5e2d-43ee-9b3c-cfa81522d66e)
-![image](https://github.com/user-attachments/assets/f694b997-3c44-45b1-a147-fef88ceefd52)
 
 
 terraform plan
-![Uploading image.png…]()
+![image](https://github.com/user-attachments/assets/9a717ef1-d10f-4178-b18f-8c1adec028aa)
 
 terraform apply --auto-approve
 ```
@@ -229,8 +227,13 @@ kubectl apply -f service.yml
 
 #### 4️⃣ Get LoadBalancer URL
 
-```bash
+![image](https://github.com/user-attachments/assets/f1a3123e-bac3-407a-81ea-77bb1f7fcd17)
+`
+``bash
+
 kubectl describe service mario-service
+![image](https://github.com/user-attachments/assets/eec55126-b5ef-44c1-bbb4-61576ad316ef)
+
 ```
 
 🎉 **Congratulations!** Your Super Mario game is now live on your AWS EKS cluster!
@@ -238,6 +241,10 @@ kubectl describe service mario-service
 ---
 
 ### 🧹 Clean-Up Resources
+![image](https://github.com/user-attachments/assets/ea2c134b-9929-48b5-9a5a-b117f0acb7d7)
+![image](https://github.com/user-attachments/assets/8fe21fe5-3aed-48ab-aa43-9b0d9fc981c8)
+
+
 
 Avoid extra AWS charges:
 
