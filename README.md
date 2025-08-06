@@ -267,6 +267,7 @@ You've successfully:
 
 Whether you're starting in DevOps or enhancing your cloud-native skills, this project gives you real-world practice — with a nostalgic twist. 🍄🎮
 
+
 📲 **Stay Connected:**
 [Devesh Khatik | LinkedIn](https://www.linkedin.com/in/deveshkhatik)
 
